@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles/anuncios.css' %}">
+    <title>Anúncios</title>
+{% endblock %}
+
+{% block conteudo %}
+
+    <header>
+        <div>
+            <img src="{% static 'assets/menu.svg' %}" alt="menu"/>
+            <img id="logo" src="{% static 'assets/logo.svg' %}" alt="MYmóveis - logo">
+        </div>
+        <div>
+            <button>
+                <img style='align-items: center' src="{% static 'assets/user.svg' %}"/> Entrar
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <form id="filtros">
+            <button type="" id="alugar">Alugar</button>
+            <button type="input" id="comprar">Comprar</button>
+             <select id="imoveis">Imóveis</select>
+            <label for="local" class="sr-only">Que região você deseja?</label>
+            <input id="local" name="regiao" placeholder="Que região você deseja?">
+            <select id="mfiltros">Mais filtros</select>
+        </form>
+
+        <div id="anuncios"></div>
+    </main>
+
+    <footer></footer>
+
+{% endblock %}

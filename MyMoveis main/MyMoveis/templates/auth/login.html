@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block styles %}
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+    <div>
+        <header>
+            <a href="{% url 'home' %}"><img src="{% static 'assets/logo (1).png' %}" alt="MYmóveis - logo"></a>
+        </header>
+
+        <main>
+            <section>
+                <h3>Faça seu login</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{frm.non_field_errors}}
+                    <div class="form-group">
+                        <p>
+                            <label for="email" class="sr-only">Email</label>
+                            {{frm.email|add_class:'form-control'|attr:"placeholder=Email"}}
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <p>
+                            <label for="senha" class="sr-only">Senha</label>
+                            {{frm.senha|add_class:'form-control'|attr:"placeholder=Senha"}}
+                        </p>    
+                    </div>
+
+                    <div class="form-group">
+                        <p>
+                            <button type="submit" value="logar">Entrar</button>
+                        </p>    
+                    </div>
+
+                </form>
+            </section>
+
+            <div>
+                <a href="{% url 'redSenha' %}" style="color: #FEAE49">Esqueci minha senha</a>
+                <p>Chegando agora? <a href="{% url 'cadastro' %}" style="color: #FEAE49">Cadastre-se</a></p>
+            </div>
+        </main>
+    </div>
+{% endblock %}
